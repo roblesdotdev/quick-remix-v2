@@ -7,8 +7,8 @@ import chalk from 'chalk'
 import closeWithGrace from 'close-with-grace'
 import compression from 'compression'
 import express from 'express'
-import morgan from 'morgan'
 import rateLimit from 'express-rate-limit'
+import morgan from 'morgan'
 
 const MODE = process.env.NODE_ENV
 const BUILD_PATH = '../build/index.js'
