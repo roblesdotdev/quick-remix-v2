@@ -8,8 +8,10 @@ import {
   Scripts,
   ScrollRestoration,
 } from '@remix-run/react'
+import tailwindStylesHref from '~/styles/tailwind.css'
 
 export const links: LinksFunction = () => [
+  { rel: 'stylesheet', href: tailwindStylesHref },
   ...(cssBundleHref ? [{ rel: 'stylesheet', href: cssBundleHref }] : []),
 ]
 
@@ -22,7 +24,7 @@ export default function App() {
         <Meta />
         <Links />
       </head>
-      <body>
+      <body className="antialiased min-h-screen overflow-x-hidden">
         <Outlet />
         <ScrollRestoration />
         <Scripts />
