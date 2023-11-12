@@ -10,10 +10,10 @@
     "dev": "remix dev -c \"node ./server/dev-server.js\" --manual",
     "start": "cross-env NODE_ENV=production node start.js",
     "typecheck": "tsc",
-    "prettier": "prettier --ignore-path .gitignore \"**/*.+(js|jsx|css|ts|tsx)\"",
+    "prettier": "prettier --ignore-path .gitignore \"**/*.+(js|jsx|css|ts|tsx|cjs)\"",
     "format": "npm run prettier -- --list-different",
     "format:write": "npm run prettier -- --write",
-    "lint": "eslint --ignore-path .gitignore --ext js,jsx,ts,tsx ."
+    "lint": "eslint --ignore-path .gitignore --ext js,jsx,ts,tsx,cjs ."
   },
   "dependencies": {
     "@remix-run/css-bundle": "^2.2.0",
