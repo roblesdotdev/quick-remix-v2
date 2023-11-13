@@ -9,8 +9,9 @@ export const meta: MetaFunction = () => {
 
 export default function Index() {
   return (
-    <div className="flex flex-col items-center justify-center py-32">
-      <h1 className="text-2xl font-bold">Welcome to Remix</h1>
+    <div className="flex h-full w-full flex-col items-center justify-center">
+      <h1 className="text-3xl font-bold">Welcome to Remix</h1>
+      <p className="text-muted-fg mt-3 text-lg">Remix Template</p>
     </div>
   )
 }
