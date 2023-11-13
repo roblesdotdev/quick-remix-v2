@@ -14,6 +14,7 @@ import {
   Scripts,
   ScrollRestoration,
   useFetcher,
+  useFetchers,
   useLoaderData,
 } from '@remix-run/react'
 import { z } from 'zod'
@@ -88,7 +89,7 @@ function Document({
 }
 
 export default function App() {
-  const { theme } = useLoaderData<typeof loader>()
+  const theme = useTheme()
 
   return (
     <Document theme={theme}>
@@ -102,6 +103,19 @@ export default function App() {
       <div className="h-5" />
     </Document>
   )
+}
+
+function useTheme() {
+  const data = useLoaderData<typeof loader>()
+  const fetchers = useFetchers()
+  const themeFetcher = fetchers.find(
+    fetcher => fetcher.formData?.get('intent') === 'update-theme',
+  )
+  const optimisticTheme = themeFetcher?.formData?.get('theme')
+  if (optimisticTheme === 'light' || optimisticTheme === 'dark') {
+    return optimisticTheme
+  }
+  return data.theme
 }
 
 function ThemeSwitch({ userPreference }: { userPreference?: Theme }) {
